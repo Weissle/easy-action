@@ -1,7 +1,7 @@
 local utils = {}
 
 --- check whether a char exists in a string
----@param c string whose length is char1_chars
+---@param c string whose length is 1
 ---@param s string
 ---@return boolean
 utils.char_in_str = function(c, s)
@@ -23,7 +23,7 @@ utils.equal = function(a, b)
 	elseif type(a) == "table" then
 		if a == b then
 			return true
-		elseif #a ~= #b then
+		elseif vim.tbl_count(a) ~= vim.tbl_count(b) then
 			return false
 		else
 			for k, v in pairs(a) do
@@ -38,25 +38,9 @@ utils.equal = function(a, b)
 	end
 end
 
---- Get your action input. Return empty string if you press the stop_char.
----@param continue_chars string
----@param stop_char string
----@return string
-utils.action_input = function(continue_chars, stop_char)
-	local lst_char, cmd = "0", ""
-	while utils.char_in_str(lst_char, continue_chars) do
-		lst_char = vim.fn.getcharstr()
-		if lst_char == stop_char then
-			return ""
-		end
-		cmd = cmd .. lst_char
-	end
-	return cmd
-end
-
 --- feedkeys after {delay_ms}
 ---@param delay_ms number|nil
----@vararg The param of the nvim_feedkeys function
+---@vararg any The param of the nvim_feedkeys function
 utils.defer_feedkeys = function(delay_ms, ...)
 	local args = { ... }
 	vim.defer_fn(function()

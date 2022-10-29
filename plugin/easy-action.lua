@@ -1,2 +1,4 @@
---- EasyActionAny: It it same as any_easy_action()
-vim.api.nvim_create_user_command("EasyActionAny", require("easy-action").any_easy_action, {})
+--- BasicEasyAction
+vim.api.nvim_create_user_command("BasicEasyAction", function()
+	require("easy-action").base_easy_action(nil, nil, nil)
+end, {})
