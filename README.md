@@ -1,10 +1,15 @@
-# Easy Action
+# easy-action
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Weissle/easy-action/default?style=for-the-badge)
 ![Lua](https://img.shields.io/badge/Made%20with%20Lua-blueviolet.svg?style=for-the-badge&logo=lua)
 
-Easy Action is a plugin which allows you to execute an action, such as yank and delete, but keep your cursor position.
+easy-action is a plugin which allows you to execute an action, such as yank and delete, but keeps your cursor position.
+
 It bases on [EasyMotion](https://github.com/easymotion/vim-easymotion)-like plugins.
+When use EasyMotion-like plugin, you need to trigger them and choose the position you jump.
+For easy-action, you need to trigger easy-action, input your action, choose where to perform the action.
+
+In the below example, my cursor is on the left window and I will copy the text on the right window which is around 45 line.
 
 ## Background
 With the easy-motion like plugin, we can easily jump to anywhere visible.

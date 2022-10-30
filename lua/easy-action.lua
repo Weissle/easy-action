@@ -32,7 +32,6 @@ easy_action.base_easy_action = function(action, jump_cmd, jump_back_event)
 		vim.fn.feedkeys(action, "t")
 		jump_back:jumpback(jump_back_event, config_module.config.jump_back_delay_ms)
 	end)
-
 end
 
 return easy_action
