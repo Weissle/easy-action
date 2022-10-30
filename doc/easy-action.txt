@@ -1,0 +1,135 @@
+==============================================================================
+------------------------------------------------------------------------------
+                                                *easy_action.base_easy_action()*
+    `easy_action.base_easy_action`({action}, {jump_cmd}, {jump_back_event})
+The basic function of easy-action.
+Parameters~
+{action} `(string|table|nil)` Usually it consists of verb and range. If it is nil, you need to input the verb and range; If it is table, you can define the verb or range previously. If it is string, you don't need to input the command(but it will be remapped).
+{jump_cmd} `(string|function|table|nil)` How to jump? If it is nil, it will select the jump command according to your config. If it is string, vim.cmd(jump_cmd). If it is function, call it. If it is table, it should contain two fields, cmd and feed. cmd is a string or a function and feed is your input.
+{jump_back_event} `(string|table|nil)` When to jump back? If it is nil, it jumps back after executing the action. It can be event or a list of event.
+
+------------------------------------------------------------------------------
+                                                  *easy_action.yd_easy_action()*
+                         `easy_action.yd_easy_action`()
+easy-action for doing anything.
+
+
+==============================================================================
+------------------------------------------------------------------------------
+                                                                 *input.input()*
+         `input.input`({free_chars}, {limited_chars}, {terminate_char})
+Get your action input. limited_chars can only show up no more than twice. Return empty string if you press the terminate_char.
+Parameters~
+{free_chars} `(string)`
+{limited_chars} `(string)`
+{terminate_char} `(string)`
+Return~
+`(string|nil)`
+
+------------------------------------------------------------------------------
+                                                            *input.get_action()*
+                          `input.get_action`({action})
+The basic function of easy-action.
+Parameters~
+{action} `(string|table|nil)` Usually it consists of verb and range. If it is nil, you need to input the verb and range; If it is table, you can define the verb or range previously. If it is string, you don't need to input the command(but it will still be remapped).
+Return~
+`(string)`
+
+
+==============================================================================
+------------------------------------------------------------------------------
+                                                           *jump.get_jump_cmd()*
+                         `jump.get_jump_cmd`({action})
+Get the jump cmd according to your action
+Parameters~
+{action} `(string)`
+Return~
+`(string|function|table)`
+
+------------------------------------------------------------------------------
+                                                            *jump.do_jump_cmd()*
+                         `jump.do_jump_cmd`({jump_cmd})
+exec your jump cmd
+Parameters~
+{jump_cmd} `(string|function|table)`
+
+------------------------------------------------------------------------------
+                                                                   *jump.jump()*
+                             `jump.jump`({action})
+jump according to your action
+Parameters~
+{action} `(string)`
+
+
+==============================================================================
+------------------------------------------------------------------------------
+                                                     *jump_back:save_position()*
+                          `jump_back:save_position`()
+save current cusor position
+
+------------------------------------------------------------------------------
+                                                             *jump_back:clear()*
+                              `jump_back:clear`()
+clear the cursor info as well as the jump_back autocmd
+
+------------------------------------------------------------------------------
+                                                *jump_back:cursor_doesnt_move()*
+                        `jump_back:cursor_doesnt_move`()
+check if current cursor position is the same as the record
+Return~
+`(boolean)`
+
+------------------------------------------------------------------------------
+                                                        *jump_back:defer_jump()*
+                       `jump_back:defer_jump`({delay_ms})
+jump back after {delay_ms}
+Parameters~
+{delay_ms} `(number)`
+
+------------------------------------------------------------------------------
+                                                          *jump_back:jumpback()*
+                   `jump_back:jumpback`({event}, {delay_ms})
+jumpback to the record cursor position after event(s) happen.
+Parameters~
+{event} `(nil|string|table)` It it is nil, event will not be used. If it is table, it should contain a list of event.
+{delay_ms} `(number)`
+
+
+==============================================================================
+------------------------------------------------------------------------------
+                                                           *utils.char_in_str()*
+                         `utils.char_in_str`({c}, {s})
+check whether a char exists in a string
+Parameters~
+{c} `(string)` whose length is 1
+{s} `(string)`
+Return~
+`(boolean)`
+
+------------------------------------------------------------------------------
+                                                                 *utils.equal()*
+                            `utils.equal`({a}, {b})
+check if a is equal to b recursivly.
+Parameters~
+{a} `(any)`
+{b} `(any)`
+Return~
+`(boolean)`
+
+------------------------------------------------------------------------------
+                                                        *utils.defer_feedkeys()*
+                   `utils.defer_feedkeys`({delay_ms}, {...})
+feedkeys after {delay_ms}
+Parameters~
+{delay_ms} `(number|nil)`
+any The param of the nvim_feedkeys function
+
+------------------------------------------------------------------------------
+                                                                  *utils.call()*
+                              `utils.call`({cmd})
+run cmd or call cmd()
+Parameters~
+{cmd} `(function|string)`
+
+
+ vim:tw=78:ts=8:noet:ft=help:norl:
