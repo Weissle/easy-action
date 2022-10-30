@@ -28,7 +28,6 @@ describe("input.input", function()
 		input_mock = input_mock_factory("30f??????")
 		vim.fn.getcharstr = input_mock.get
 		local cmd = input.input(nil, nil, nil)
-		print("cmd is ", cmd)
 		assert(cmd == nil)
 	end)
 end)

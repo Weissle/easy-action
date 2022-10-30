@@ -43,7 +43,6 @@ config.config = {
 function config:set_config(args)
 	config.config = vim.tbl_deep_extend("force", config.config, args or {})
 	config.config.terminate_char = vim.api.nvim_replace_termcodes(config.config.terminate_char, true, true, true)
-	print(config.config.terminate_char)
 	assert(#config.config.terminate_char == 1, "The terminal char should be one key.")
 end
 

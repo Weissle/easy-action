@@ -17,13 +17,11 @@ easy_action.base_easy_action = function(action, jump_cmd, jump_back_event)
 	if action == "" then
 		return
 	end
-	print(action)
 	jump_back:clear()
 	jump_back:save_position()
 	local async = require("async")
 	async(function()
 		jump_cmd = jump_cmd or jump.get_jump_cmd(action)
-		vim.pretty_print(jump_cmd)
 		jump.do_jump_cmd(jump_cmd)
 		-- You didn't move your cursor.
 		if jump_back:cursor_doesnt_move() then
