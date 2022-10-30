@@ -9,7 +9,11 @@ It bases on [EasyMotion](https://github.com/easymotion/vim-easymotion)-like plug
 When use EasyMotion-like plugin, you need to trigger them and choose the position you jump.
 For easy-action, you need to trigger easy-action, input your action, choose where to perform the action.
 
-In the below example, my cursor is on the left window and I will copy the text on the right window which is around 45 line.
+In the below example, my cursor is on the left window and I will copy and delete the text on the right window which is around 45 line.
+
+
+https://user-images.githubusercontent.com/29982556/198888179-22180ad5-6248-45ef-b494-7051b672dd80.mp4
+
 
 ## Background
 With the easy-motion like plugin, we can easily jump to anywhere visible.
@@ -38,9 +42,9 @@ use{ "Weissle/easy-action" }
 ```lua
 -- Below setting is default and you don't need to copy it. You may just require("easy-action").setup({})
 require("easy-action").setup({
-  -- These chars can show up any times.
+  -- These chars can show up any times in your action input.
   free_chars = "0123456789",
-  -- These chars can show up no more than twice.
+  -- These chars can show up no more than twice in action input.
   limited_chars = "iafFtT",
   -- Cancel action.
   terminate_char = "<ESC>",
@@ -87,7 +91,7 @@ require("easy-action").setup({
       -- Your will get the action which is going to be executed. And you can choose your jump command. 
       -- It can be string, then easy-action will do vim.cmd(ret).
       -- It can be function, then easy-action will call ret().
-      -- It can be table, {cmd = string|function, feed = string}, then easy-action will execute this cmd and feed these the `feed`.
+      -- It can be table, {cmd = string|function, feed = string}, then easy-action will execute this cmd and feed the `feed`.
     end
   }
 })
@@ -97,7 +101,7 @@ require("easy-action").setup({
 easy-motion doesn't change your keymap by default. You may
 ```lua
 local opts = { slient=true, remap=false }
--- Normally you can use <leader>eyy to copy a line. <leader>eyi" to copy the content within a pair of quotation.
+-- trigger easy-action.
 vim.keymap.set("n","<leader>e", "<cmd>BasicEasyAction<cr>", opts)
 
 -- To insert something and jump back after you leave the insert mode
