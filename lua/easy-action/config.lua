@@ -34,6 +34,13 @@ config.config = {
 				default = "HopChar2MW",
 			},
 		},
+		leap = {
+			action_select = {
+				default = function()
+					require("leap").leap({ target_windows = require("leap.util").get_enterable_windows() })
+				end,
+			},
+		},
 	},
 	-- Just make sure they are greater than 0. Usually 1 is all right.
 	jump_back_delay_ms = 1,

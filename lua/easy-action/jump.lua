@@ -27,6 +27,11 @@ local hop_action_select = function(action)
 	return hop_config.action_select.default
 end
 
+local leap_action_select = function(action)
+	local leap_config = config_module.config.jump_provider_config.leap
+	return leap_config.action_select.default
+end
+
 --- Get the jump cmd according to your action
 ---@param action string
 ---@return string|function|table
@@ -35,6 +40,8 @@ jump.get_jump_cmd = function(action)
 	local jump_provider = config_module.config.jump_provider
 	if jump_provider == "hop" then
 		jump_cmd = hop_action_select(action)
+	elseif jump_provider == "leap" then
+		jump_cmd = leap_action_select(action)
 	elseif config_module.config.jump_provider_config[jump_provider] then
 		local tmp = config_module.config.jump_provider_config[jump_provider]
 		if type(tmp) == "function" then

@@ -27,7 +27,7 @@ I use hop.nvim, supporting other relative plugins maybe slow.Thus, PR is welcome
 
 **Currently supported Plugins**:
 - [X] [hop.nvim](https://github.com/phaazon/hop.nvim)  
-- [ ] [leap.nvim](https://github.com/ggandor/leap.nvim)  
+- [X] [leap.nvim](https://github.com/ggandor/leap.nvim)  
 - [ ] [mini.nvim](https://github.com/echasnovski/mini.nvim)
 
 ## Install
@@ -73,6 +73,13 @@ require("easy-action").setup({
         },
         -- Default command.
         default = "HopChar2MW",
+      },
+    },
+    leap = {
+      action_select = {
+        default = function()
+          require("leap").leap({ target_windows = require("leap.util").get_enterable_windows() })
+        end,
       },
     },
   },
