@@ -9,7 +9,7 @@ It bases on [EasyMotion](https://github.com/easymotion/vim-easymotion)-like plug
 When use EasyMotion-like plugin, you need to trigger them and choose the position you jump.
 For easy-action, you need to trigger easy-action, input your action, choose where to perform the action.
 
-In the below example, my cursor is on the left window and I will copy and delete the text on the right window which is around 45 line.
+In the below example, my cursor is on the left window and I will copy and delete the text on the right window which is around 45 line. In this example, I use `<space>e` to trigger easy-action.
 
 
 https://user-images.githubusercontent.com/29982556/198888179-22180ad5-6248-45ef-b494-7051b672dd80.mp4
@@ -105,7 +105,7 @@ require("easy-action").setup({
 ```
 
 ## Usage
-easy-motion doesn't change your keymap by default. You may
+easy-action doesn't change your keymap by default. You may
 ```lua
 local opts = { slient=true, remap=false }
 -- trigger easy-action.
