@@ -34,15 +34,15 @@ I use hop.nvim, supporting other relative plugins maybe slow.Thus, PR is welcome
 
 With packer.nvim
 ```lua
-    use {
-      'Weissle/easy-action',
-      requires = {
-        {
-          "kevinhwang91/promise-async",
-          module = { "async" },
-        }
-      }
+use {
+  'Weissle/easy-action',
+  requires = {
+    {
+      "kevinhwang91/promise-async",
+      module = { "async" },
     }
+  }
+}
 ```
 
 ## Config
