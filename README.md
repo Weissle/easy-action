@@ -34,7 +34,15 @@ I use hop.nvim, supporting other relative plugins maybe slow.Thus, PR is welcome
 
 With packer.nvim
 ```lua
-use{ "Weissle/easy-action" }
+    use {
+      'Weissle/easy-action',
+      requires = {
+        {
+          "kevinhwang91/promise-async",
+          module = { "async" },
+        }
+      }
+    }
 ```
 
 ## Config
@@ -107,7 +115,7 @@ require("easy-action").setup({
 ## Usage
 easy-action doesn't change your keymap by default. You may
 ```lua
-local opts = { slient=true, remap=false }
+local opts = { silent=true, remap=false }
 -- trigger easy-action.
 vim.keymap.set("n","<leader>e", "<cmd>BasicEasyAction<cr>", opts)
 
